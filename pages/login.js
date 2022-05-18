@@ -17,7 +17,7 @@ const Login = () => {
       </form>
       {isCreatingNewAccount ? 
         <p className="toggleSignin" onClick={() => setIsCreatingNewAccount(false)}>Already have account? Sign in instead!</p> : 
-        <p className="toggleSignin" onClick={() => setIsCreatingNewAccount(true)}>Don't have an account? Create one!</p>}
+        <p className="toggleSignin" onClick={() => setIsCreatingNewAccount(true)}>Don&apos;t have an account? Create one!</p>}
     </>
   )
 }
