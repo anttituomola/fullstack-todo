@@ -21,3 +21,7 @@ model todos {
   completed Boolean
   createdAt Int
 }
+
+model test {
+  text        String   @id
+}

@@ -8,24 +8,23 @@ const InputElement = () => {
     const [inputValue, setInputValue] = useState("")
     const dispatch = useDispatch()
 
-    const handleSubmit = () => {
-        dispatch(todoActions.addTodo({
+    const handleSubmit = async () => {
+        const todo = {
             text: inputValue,
             id: uuid(),
             date: dayjs().unix(),
             completed: false
-        })
-        )
+        }
+        dispatch(todoActions.addTodo(todo))
         setInputValue("")
     }
 
+        return (
+            <>
+                <input type="text" onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
+                <button onClick={handleSubmit}>Submit</button>
+            </>
+        )
+    }
 
-    return (
-        <>
-            <input type="text" onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
-            <button onClick={handleSubmit}>Submit</button>
-        </>
-    )
-}
-
-export default InputElement
+    export default InputElement
