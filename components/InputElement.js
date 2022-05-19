@@ -3,10 +3,12 @@ import { v4 as uuid } from "uuid"
 import dayjs from "dayjs"
 import { useDispatch } from "react-redux"
 import { todoActions } from "../features/todoSlice"
+import { useSession } from "next-auth/react"
 
 const InputElement = () => {
     const [inputValue, setInputValue] = useState("")
     const dispatch = useDispatch()
+    const { data: session, status } = useSession()
 
     const listenForEnterKey = (event) => {
         if (event.key === "Enter") {
@@ -19,7 +21,8 @@ const InputElement = () => {
             text: inputValue,
             id: uuid(),
             date: dayjs().unix(),
-            completed: false
+            completed: false,
+            userId: session ? session.user.email : "null"
         }
         dispatch(todoActions.addTodo(todo))
         setInputValue("")

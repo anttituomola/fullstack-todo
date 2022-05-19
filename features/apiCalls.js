@@ -52,9 +52,10 @@ export const createTodoInDatabase = async (todo) => {
 
     var raw = JSON.stringify({
         "text": todo.text,
-        "completed": false,
+        "completed": todo.completed,
         "id": todo.id,
-        "createdAt": todo.date
+        "createdAt": todo.date,
+        "userId": todo.userId
     });
 
     var requestOptions = {

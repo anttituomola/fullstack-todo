@@ -9,7 +9,8 @@ const todo = async (req, res) => {
                     text: req.body.text,
                     completed: req.body.completed,
                     createdAt: req.body.createdAt,
-                    id: req.body.id
+                    id: req.body.id,
+                    userId: req.body.userId
                 }
             })
             res.status(201).json({ message: aTodo })

@@ -1,5 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -20,8 +18,5 @@ model todos {
   text      String
   completed Boolean
   createdAt Int
-}
-
-model test {
-  text        String   @id
+  userId    String
 }
