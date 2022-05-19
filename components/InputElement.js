@@ -8,6 +8,12 @@ const InputElement = () => {
     const [inputValue, setInputValue] = useState("")
     const dispatch = useDispatch()
 
+    const listenForEnterKey = (event) => {
+        if (event.key === "Enter") {
+            handleSubmit()
+        }
+    }
+
     const handleSubmit = async () => {
         const todo = {
             text: inputValue,
@@ -21,7 +27,11 @@ const InputElement = () => {
 
         return (
             <>
-                <input type="text" onChange={(event) => setInputValue(event.target.value)} value={inputValue} />
+                <input type="text" 
+                    onChange={(event) => setInputValue(event.target.value)} 
+                    value={inputValue}
+                    onKeyDown={listenForEnterKey}    
+                />
                 <button onClick={handleSubmit}>Submit</button>
             </>
         )
