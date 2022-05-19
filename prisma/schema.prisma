@@ -14,3 +14,10 @@ model User {
   email    String @id
   password String
 }
+
+model todos {
+  id        String   @id
+  text      String
+  completed Boolean
+  createdAt Int
+}
