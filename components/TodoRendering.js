@@ -14,6 +14,10 @@ const TodoRendering = () => {
 
   const personalTodos = todos.filter(todo => todo.userId === userId)
 
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
   const renderTodos = personalTodos?.map(todo => {
     return (
       <div key={todo.id}>
