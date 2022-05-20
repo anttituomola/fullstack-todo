@@ -16,7 +16,7 @@ export const toggleTodoInDatabase = async (todo) => {
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/api/todo", requestOptions)
+    fetch("/api/todo", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
@@ -40,7 +40,7 @@ export const deleteTodoInDatabase = async (todo) => {
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/api/todo", requestOptions)
+    fetch("/api/todo", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
@@ -65,7 +65,7 @@ export const createTodoInDatabase = async (todo) => {
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/api/todo", requestOptions)
+    fetch("/api/todo", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
