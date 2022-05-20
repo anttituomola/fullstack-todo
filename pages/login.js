@@ -51,7 +51,7 @@ const Login = () => {
     </div>
   }
 
-  if (status === "loading") {
+  if (status === "authenticated") {
     window.location.href = "/todo"
   }
 
