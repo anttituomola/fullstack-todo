@@ -44,7 +44,11 @@ const Login = () => {
   }
 
   if (status === "loading") {
-    return <div className="bouncing-loader"></div>
+    return <div className="bouncing-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   }
 
   return (
