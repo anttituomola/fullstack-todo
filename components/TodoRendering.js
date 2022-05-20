@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { todoActions } from "../features/todoSlice"
 import { useSession } from "next-auth/react"
+import styles from "./TodoRendering.module.css"
 
 const TodoRendering = () => {
   const { data: session, status } = useSession()
@@ -15,7 +16,7 @@ const TodoRendering = () => {
   const personalTodos = todos.filter(todo => todo.userId === userId)
 
   if (status === "loading") {
-    return <p>Loading...</p>
+    return <div className="bouncing-loader"></div>
   }
 
   const renderTodos = personalTodos?.map(todo => {
