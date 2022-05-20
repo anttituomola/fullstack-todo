@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 const Login = () => {
   const [isCreatingNewAccount, setIsCreatingNewAccount] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const {data: session, status} = useSession()
 
   const submitHandler = async (event) => {
     event.preventDefault()
@@ -39,6 +41,10 @@ const Login = () => {
     }
 
     return data
+  }
+
+  if (status === "loading") {
+    return <div className="bouncing-loader"></div>
   }
 
   return (
