@@ -22,10 +22,6 @@ const TodoRendering = () => {
     </div>
   }
 
-  if (status === "authenticated") {
-    window.location.href = "/todo"
-  }
-
   const renderTodos = personalTodos?.map(todo => {
     return (
       <div key={todo.id}>

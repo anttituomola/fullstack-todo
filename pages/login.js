@@ -51,6 +51,10 @@ const Login = () => {
     </div>
   }
 
+  if (status === "loading") {
+    window.location.href = "/todo"
+  }
+
   return (
     <>
       {isCreatingNewAccount ? <h1>Create new account</h1>: <h1>Login</h1>}
