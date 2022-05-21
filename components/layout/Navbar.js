@@ -19,7 +19,7 @@ const Navbar = () => {
                     <li><Link href="/login"><span className={styles.link} onClick={() => dispatch(todoActions.isCreatingNewAccount(false))}>Login</span></Link> / &nbsp;
                     <Link href="/login"><span className={styles.link} onClick={() => dispatch(todoActions.isCreatingNewAccount(true))}>Create account</span></Link></li>    
                 }
-                    <li><Link href="/profile">Profile</Link></li>
+                    {session && <li><Link href="/profile">Profile</Link></li>}
                     <li><Link href="/about">About</Link></li>
                 </ul>
             </nav>
