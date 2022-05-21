@@ -1,13 +1,17 @@
 import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
+import { todoActions } from "features/todoSlice"
+import { useDispatch, useSelector } from "react-redux"
 
 const Login = () => {
-  const [isCreatingNewAccount, setIsCreatingNewAccount] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const {data: session, status} = useSession()
+  const dispatch = useDispatch()
+  const isCreatingNewAccount = useSelector(state => state.todos.isCreatingNewAccount)
+
 
   const submitHandler = async (event) => {
     event.preventDefault()
@@ -28,7 +32,7 @@ const Login = () => {
 }
 
   const createUser = async () => {
-    const response = await fetch("/api/auth/signup", {
+    const response = await fetch(`/api/auth/signup`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" }

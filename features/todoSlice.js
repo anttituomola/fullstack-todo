@@ -6,6 +6,7 @@ export const todoSlice = createSlice({
 
     initialState: {
         todos: [],
+        isCreatingNewAccount: false,
     },
 
     reducers: {
@@ -27,6 +28,9 @@ export const todoSlice = createSlice({
             const todoToDelete = state.todos.find(todo => todo.id === action.payload)
             state.todos = state.todos.filter(todo => todo.id !== action.payload)
             deleteTodoInDatabase(todoToDelete)
+        },
+        isCreatingNewAccount: (state, action) => {
+            state.isCreatingNewAccount = action.payload
         }
     }
 })
