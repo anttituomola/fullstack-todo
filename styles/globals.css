@@ -10,6 +10,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+p > a, p > span {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 * {
   box-sizing: border-box;
@@ -57,3 +61,8 @@ a {
   animation-delay: 0.4s;
 }
 /* LOADING ANIMATION ENDS */
+
+.toggleSignin {
+  cursor: pointer;
+  text-decoration: underline;
+}

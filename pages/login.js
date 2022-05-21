@@ -8,8 +8,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const {data: session, status} = useSession()
   const dispatch = useDispatch()
+  const {data: session, status} = useSession()
   const isCreatingNewAccount = useSelector(state => state.todos.isCreatingNewAccount)
 
 
@@ -23,9 +23,9 @@ const Login = () => {
       }
     } else {
       const result = await signIn("credentials", { 
-        redirect: false,
         email: email,
-        password: password
+        password: password,
+        callbackUrl: "/todo"
       })
       console.log(result)
   }
@@ -59,6 +59,7 @@ const Login = () => {
     window.location.href = "/todo"
   }
 
+  console.log(session, status)
   return (
     <>
       {isCreatingNewAccount ? <h1>Create new account</h1>: <h1>Login</h1>}
@@ -71,8 +72,8 @@ const Login = () => {
         <button type="submit">{isCreatingNewAccount ? "Create account" : "Login"}</button>
       </form>
       {isCreatingNewAccount ?
-        <p className="toggleSignin" onClick={() => setIsCreatingNewAccount(false)}>Already have account? Sign in instead!</p> :
-        <p className="toggleSignin" onClick={() => setIsCreatingNewAccount(true)}>Don&apos;t have an account? Create one!</p> }
+        <p className="toggleSignin" onClick={() => dispatch(todoActions.isCreatingNewAccount(false))}>Already have account? Sign in instead!</p> :
+        <p className="toggleSignin" onClick={() => dispatch(todoActions.isCreatingNewAccount(true))}>Don&apos;t have an account? Create one!</p> }
     </>
   )
 }
