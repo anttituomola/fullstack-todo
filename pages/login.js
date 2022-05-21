@@ -62,6 +62,7 @@ const Login = () => {
   console.log(session, status)
   return (
     <>
+    <div className="container">
       {isCreatingNewAccount ? <h1>Create new account</h1>: <h1>Login</h1>}
       <form onSubmit={submitHandler} className="loginForm">
         <label htmlFor="email">Email</label>
@@ -74,6 +75,8 @@ const Login = () => {
       {isCreatingNewAccount ?
         <p className="toggleSignin" onClick={() => dispatch(todoActions.isCreatingNewAccount(false))}>Already have account? Sign in instead!</p> :
         <p className="toggleSignin" onClick={() => dispatch(todoActions.isCreatingNewAccount(true))}>Don&apos;t have an account? Create one!</p> }
+
+    </div>
     </>
   )
 }

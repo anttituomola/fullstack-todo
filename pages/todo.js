@@ -11,11 +11,11 @@ const Todo = ({todos}) => {
     dispatch(todoActions.hydrateTodos(todos))
     
     return (
-        <>
+        <div className="container">
             <h1>Todo app</h1>
             <InputElement />
             <TodoRendering />
-        </>
+        </div>
     )
 }
 

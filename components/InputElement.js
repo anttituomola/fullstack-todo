@@ -4,6 +4,7 @@ import dayjs from "dayjs"
 import { useDispatch } from "react-redux"
 import { todoActions } from "../features/todoSlice"
 import { useSession } from "next-auth/react"
+import styles from "../styles/InputElement.module.css"
 
 const InputElement = () => {
     const [inputValue, setInputValue] = useState("")
@@ -29,14 +30,15 @@ const InputElement = () => {
     }
 
         return (
-            <>
+            <div className={styles.input}>
                 <input type="text" 
                     onChange={(event) => setInputValue(event.target.value)} 
                     value={inputValue}
-                    onKeyDown={listenForEnterKey}    
+                    onKeyDown={listenForEnterKey}
+                    placeholder="Add a todo"  
                 />
-                <button onClick={handleSubmit}>Submit</button>
-            </>
+                <button onClick={handleSubmit} className={styles.button}>Submit</button>
+            </div>
         )
     }
 

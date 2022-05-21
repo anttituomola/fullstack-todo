@@ -7,7 +7,7 @@ const Profile = () => {
   }
   if (status === "authenticated") {
       return (
-      <div>
+      <div className="container">
         <h2>This is super secret profile page that you should not see if not logged in!</h2>
         <p>You have logged in with email <strong>{session.user.email}</strong></p>  
       </div>
