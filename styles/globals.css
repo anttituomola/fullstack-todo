@@ -66,3 +66,7 @@ p > a, p > span {
   cursor: pointer;
   text-decoration: underline;
 }
+
+.footer {
+  margin-top: 2em;
+}
