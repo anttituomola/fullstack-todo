@@ -1,7 +1,7 @@
 
 const Footer = () => {
   return (
-    <div>© Antti Tuomola</div>
+    <div className="footer">© Antti Tuomola</div>
   )
 }
 
