@@ -26,16 +26,14 @@ const TodoRendering = () => {
 
   const renderTodos = personalTodos?.map(todo => {
     return (
-      <div key={uuid()}>
         <TodoElement key={todo.id} todo={todo} />
-      </div>
     )
   })
 
   return (
-    <>
+    <div key={uuid()} className="todoRender">
       {renderTodos}
-    </>
+    </div>
   )
 }
 

@@ -5,12 +5,12 @@ const TodoElement = (props) => {
     const dispatch = useDispatch()
     const todo = props.todo
     return (
-        <div key={todo.id}>
-            <p>
-                {todo.text}
-                <input type="checkbox" checked={todo.completed} onChange={() => dispatch(todoActions.toggleTodo(todo.id))} />
+        <div key={todo.id} className="todoElement">
+            <>
+                <p>{todo.text}</p>
+                <div><input type="checkbox" checked={todo.completed} onChange={() => dispatch(todoActions.toggleTodo(todo.id))} /></div>
                 <button onClick={() => dispatch(todoActions.deleteTodo(todo.id))}>Delete</button>
-            </p>
+            </>
         </div>
     )
 }
