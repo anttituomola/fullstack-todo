@@ -64,3 +64,23 @@ export const createTodoInDatabase = async (todo) => {
     fetch("/api/todo", requestOptions)
         .catch(error => console.log('error', error));
 }
+
+export const changePassword = async (oldPassword, newPassword) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "password": newPassword,
+        "oldPassword": oldPassword
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    }
+
+    fetch("/api/auth/change-password", requestOptions)
+        .catch(error => console.log('error', error));
+}

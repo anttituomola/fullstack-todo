@@ -82,6 +82,11 @@ p>span {
   padding: 0 1em;
   max-width: 600px;
 }
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
 
 input {
   border: none;
