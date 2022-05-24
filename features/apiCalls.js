@@ -17,8 +17,6 @@ export const toggleTodoInDatabase = async (todo) => {
     }
 
     fetch("/api/todo", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
 
@@ -41,8 +39,6 @@ export const deleteTodoInDatabase = async (todo) => {
     }
 
     fetch("/api/todo", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
 
@@ -66,7 +62,5 @@ export const createTodoInDatabase = async (todo) => {
     }
 
     fetch("/api/todo", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
