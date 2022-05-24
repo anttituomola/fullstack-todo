@@ -106,7 +106,7 @@ input {
   border-radius: 5px;
   width: 60%;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   background-color: lightgray;
 }
 

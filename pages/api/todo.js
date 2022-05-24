@@ -53,7 +53,11 @@ const todo = async (req, res) => {
     // Reading all todos
     if (req.method === "GET") {
         try {
-            const todos = await prisma.todos.findMany()
+            const todos = await prisma.todos.findMany({
+                where: {
+                    userId: req.query.userId
+                }
+            })
             res.status(200).json(todos)
         } catch (error) {
             res.status(500).json({ message: error.message })

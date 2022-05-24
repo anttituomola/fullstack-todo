@@ -28,7 +28,7 @@ export const getServerSideProps = async (context) => {
     }
     const todos = await prisma.todos.findMany({
         where: {
-            userId: session.user.id
+            userId: session.user.email
         }
     })
     return { props: {todos} }

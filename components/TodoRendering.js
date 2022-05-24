@@ -1,5 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
-import { todoActions } from "../features/todoSlice"
+import { useSelector } from "react-redux"
 import { useSession } from "next-auth/react"
 import TodoElement from "./TodoElement"
 import { v4 as uuid } from 'uuid'
@@ -7,7 +6,6 @@ import { v4 as uuid } from 'uuid'
 const TodoRendering = () => {
   const { data: session, status } = useSession()
   const todos = useSelector(state => state.todos.todos)
-  const dispatch = useDispatch()
 
   let userId = "null"
   if (session) {
