@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { todoActions } from "../features/todoSlice"
 import { useSession } from "next-auth/react"
+import TodoElement from "./TodoElement"
 
 const TodoRendering = () => {
   const { data: session, status } = useSession()
@@ -24,13 +25,7 @@ const TodoRendering = () => {
 
   const renderTodos = personalTodos?.map(todo => {
     return (
-      <div key={todo.id}>
-        <p>
-          {todo.text}
-          <input type="checkbox" checked={todo.completed} onChange={() => dispatch(todoActions.toggleTodo(todo.id))} />
-          <button onClick={() => dispatch(todoActions.deleteTodo(todo.id))}>Delete</button>
-        </p>
-      </div>
+      <TodoElement key={todo.id} todo={todo}/>
     )
   })
 
